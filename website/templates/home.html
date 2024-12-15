@@ -3,11 +3,30 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+{% load static %}
 
-<h1>Nonsense! Easter Eggs, Theories of Sabrina Carpenter's Discography</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Full viewport height */
+            color: white;
+        }
+    </style>
 
-<table class="table table-striped table-hover table-bordered">
-  <thead class="table-danger">
+<h1 class="text-light bg-dark">Nonsense! Easter Eggs & Theories of Sabrina Carpenter's Discography</h1><br/>
+<table class="table table-striped table-hover table-bordered table-dark">
+  <thead class="table-secondary">
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Song Title</th>
@@ -27,9 +46,8 @@
           <td>{{ record.music_video }}</td>
           <td>{{ record.time_stamp }}</td>
           <td>{{ record.theory }}</td>
-          <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+          <td><a href="{% url 'record' record.id %}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ record.id }}</a></td>
       </tr>
-        </br></br>
     {% endfor %}
 
 {% endif %}
@@ -55,10 +73,11 @@
   </div>
   <br/>
   <button type="submit" class="btn btn-secondary">Login</button>
+</div>
 </form>
-
+</div>
 
 
 {% endif %}
-
+</body>
 {% endblock %}

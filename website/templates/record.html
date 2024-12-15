@@ -25,14 +25,17 @@
 
 			<strong>The Theory: </strong>{{ customer_record.theory }}<br/><br/>
 
-			<strong>ID: </strong>{{ customer_record.id }}<br/><br/>
+			<strong>ID: </strong>{{ customer_record.id }}<br/>
 	</p>
 	</div>
 </div>
 
-<br/><br/>
+<br/>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
 <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
 
-<a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
-
+<a href="{% url 'update_record' customer_record.id %}" class="btn btn-success">Update Record</a>
+</div>
 {% endblock %}
