@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+	
+	<div class="card">
+	<div class="card-header"><h5><strong>
+		{{ customer_record.song }}
+	</div></h5></strong>
+	<div class="card-body">
+    <p class="card-text">
+			<strong>Date: </strong>{{ customer_record.create_at }}<br/><br/>
+
+			<strong>Name: </strong>{{ customer_record.nickname }}<br/><br/>
+			
+			<strong>Sex: </strong>{{ customer_record.sex }}<br/><br/>
+
+			<strong>Age: </strong>{{ customer_record.age }}<br/><br/>
+			
+			<strong>Country: </strong>{{ customer_record.country }}<br/><br/>
+
+			<strong>Instagram Handle: </strong>{{ customer_record.insta }}<br/><br/>
+
+			<strong>Music Video available: </strong>{{ customer_record.music_video }}<br/><br/>
+
+			<strong>Timestamp: </strong>{{ customer_record.time_stamp }}<br/><br/>
+
+			<strong>The Theory: </strong>{{ customer_record.theory }}<br/><br/>
+
+			<strong>ID: </strong>{{ customer_record.id }}<br/><br/>
+	</p>
+	</div>
+</div>
+
+<br/><br/>
+<a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Record
 
 class SignUpForm(UserCreationForm):
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -32,6 +33,20 @@ class SignUpForm(UserCreationForm):
 
 
 
+class AddRecordForm(forms.ModelForm):
+	nickname = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Nickname", "class":"form-control"}), label="")
+	insta = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Instagram Handle", "class":"form-control"}), label="")
+	age = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Age", "class":"form-control"}), label="")
+	sex = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Sex", "class":"form-control"}), label="")
+	country = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Country", "class":"form-control"}), label="")
+	song = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Song Title", "class":"form-control"}), label="")
+	music_video = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Is it referring to a music video?", "class":"form-control"}), label="")
+	time_stamp = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Timestamp", "class":"form-control"}), label="")
+	theory = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"What's your theory?", "class":"form-control"}), label="")
+
+	class Meta:
+		model = Record
+		exclude = ("user",)
 
 
 
