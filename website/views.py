@@ -22,7 +22,9 @@ def home(request):
 	else:
 		return render(request, 'home.html', {'records':records})
 
-
+def login_user(request):
+	pass
+	
 def logout_user(request):
 	logout(request)
 	messages.success(request, "Thank you! Come again next time.")
