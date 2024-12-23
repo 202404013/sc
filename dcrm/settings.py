@@ -73,12 +73,16 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-import dj_database_url
-import os
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')  # Ensure 'DATABASE_URL' is set in Render
-     )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sc-3',  # The database name
+        'USER': 'root',  # The username
+        'PASSWORD': '13632',  # The password
+        'HOST': 'localhost',  # The MySQL hostname
+        'PORT': '3306',  # Default MySQL port
+    }
 }
 
 
